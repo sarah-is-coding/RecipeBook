@@ -1,5 +1,5 @@
 body {
-    background: url('src/components/assets/journal-background.jpg'); /* Replace with your journal background image */
+    background: url('src/components/assets/journal-background.jpg');
     background-size: cover;
     font-family: 'Times New Roman', serif; /* Gives a classic book feel */
 }
