@@ -39,11 +39,55 @@ body, html {
     align-items: center;
 }
 
+/* Styling for navigation */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
 /* Styling for buttons */
 button {
-    display: block;
-    margin: 20px auto;
     padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f6b;
 }
 
 #app, #addRecipeForm {
@@ -64,4 +108,3 @@ form input, form textarea, form button {
     padding: 8px;
     margin-bottom: 20px;
 }
-
