@@ -36,6 +36,7 @@ nav {
 .search-bar {
     display: flex;
     align-items: center;
+    font-family: 'Indie Flower', cursive;
 }
 
 .search-bar input[type="text"] {
