@@ -21,7 +21,7 @@ function router() {
     const appDiv = document.getElementById('app');
 
     if (path === '/') {
-        appDiv.innerHTML = 'Home Page Content'; // Potentially render a list of recipes
+        appDiv.innerHTML = 'Search Page Content'; // Potentially render a list of recipes
     } else if (path === '/add-recipe') {
         document.getElementById('addRecipeForm').style.display = 'block';
     } else if (path.startsWith('/recipe/')) {
