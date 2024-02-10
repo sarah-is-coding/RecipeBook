@@ -1,33 +1,54 @@
-let currentPageIndex = 0; // Starting index of the page
-const pages = document.querySelectorAll('.page'); // Get all pages
-const totalPages = pages.length; // Total number of pages
-
-// Initially hide all pages except the first one
-pages.forEach((page, index) => {
-    if (index !== 0) page.style.display = 'none';
-});
-
-// Show a specific page based on index
-function goToPage(index) {
-    pages[currentPageIndex].style.display = 'none'; // Hide current page
-    pages[index].style.display = 'block'; // Show the new page
-    currentPageIndex = index; // Update the current page index
+function generateSlug(title) {
+    return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
 }
 
-// Event listener for "Next" button
-document.getElementById('next').addEventListener('click', function() {
-    if (currentPageIndex < totalPages - 1) {
-        goToPage(currentPageIndex + 1);
-    } else {
-        alert("You're at the last page!");
-    }
-});
+function renderRecipePage(slug) {
+    const recipe = recipes.find(r => r.id === slug);
+    if (!recipe) return '404 - Recipe Not Found';
 
-// Event listener for "Previous" button
-document.getElementById('prev').addEventListener('click', function() {
-    if (currentPageIndex > 0) {
-        goToPage(currentPageIndex - 1);
+    return `
+        <h2>${recipe.title}</h2>
+        <p>${recipe.description}</p>
+        <h3>Ingredients:</h3>
+        <ul>${recipe.ingredients.map(i => `<li>${i.name}: ${i.measurement}</li>`).join('')}</ul>
+        <h3>Steps:</h3>
+        <ol>${recipe.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+    `;
+}
+
+function router() {
+    let path = window.location.hash.substring(1);
+    const appDiv = document.getElementById('app');
+
+    if (path === '/') {
+        appDiv.innerHTML = 'Home Page Content'; // Potentially render a list of recipes
+    } else if (path === '/add-recipe') {
+        document.getElementById('addRecipeForm').style.display = 'block';
+    } else if (path.startsWith('/recipe/')) {
+        const slug = path.replace('/recipe/', '');
+        appDiv.innerHTML = renderRecipePage(slug);
     } else {
-        alert("You're at the first page!");
+        appDiv.innerHTML = '404 - Page Not Found';
     }
+}
+
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);
+
+document.getElementById('recipeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const ingredients = document.getElementById('ingredients').value.split(',').map(part => {
+        const [name, measurement] = part.split(':').map(p => p.trim());
+        return { name, measurement };
+    });
+    const steps = document.getElementById('steps').value.split('\n').map(s => s.trim());
+
+    const slug = generateSlug(title);
+    recipes.push({ id: slug, title, description, ingredients, steps });
+
+    alert('Recipe added!');
+    window.location.hash = '#/';
 });

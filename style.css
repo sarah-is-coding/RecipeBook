@@ -32,4 +32,20 @@ button {
     padding: 10px 20px;
 }
 
-/* Add custom CSS for animations and more complex layouts as needed */
+#addRecipeForm {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    display: none; /* Hidden by default */
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+}

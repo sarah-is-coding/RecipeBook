@@ -7,23 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="book">
-        <div class="page page1">
-            <div class="content">
-                <h1>Recipe Title</h1>
-                <p>Description of the recipe...</p>
-                <!-- Add more recipe content here -->
-            </div>
-        </div>
-        <div class="page page2">
-            <div class="content">
-                <!-- Next recipe or continuation -->
-            </div>
-        </div>
-        <!-- Add more pages as needed -->
+    <header>
+        <nav>
+            <a href="#/">Home</a>
+            <a href="#/add-recipe">Add Recipe</a>
+        </nav>
+    </header>
+
+    <div id="app">Welcome to the Recipe Book. Choose a recipe or add your own!</div>
+
+    <div id="addRecipeForm" style="display: none;">
+        <h2>Add a New Recipe</h2>
+        <form id="recipeForm">
+            <label for="title">Recipe Title:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea><br>
+
+            <label for="ingredients">Ingredients (name:measurement, separate by comma):</label>
+            <input type="text" id="ingredients" name="ingredients" required><br>
+
+            <label for="steps">Steps (separate by new line):</label>
+            <textarea id="steps" name="steps" required></textarea><br>
+
+            <button type="submit">Add Recipe</button>
+        </form>
     </div>
-    <button id="next">Next Page</button>
-    <button id="prev">Previous Page</button>
 
     <script src="script.js"></script>
 </body>
