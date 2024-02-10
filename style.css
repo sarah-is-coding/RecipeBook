@@ -1,0 +1,35 @@
+body {
+    background: url('journal-background.jpg'); /* Replace with your journal background image */
+    background-size: cover;
+    font-family: 'Times New Roman', serif; /* Gives a classic book feel */
+}
+
+.book {
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.page {
+    width: 100%;
+    height: 400px;
+    page-break-after: always;
+    perspective: 1000px; /* Gives a 3D effect */
+}
+
+.content {
+    padding: 20px;
+    background-color: #f5f5dc; /* Beige, like a page in a journal */
+    height: 100%;
+}
+
+/* Styling for buttons */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+}
+
+/* Add custom CSS for animations and more complex layouts as needed */
