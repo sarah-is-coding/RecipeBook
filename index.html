@@ -7,32 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#/">Search</a>
-            <a href="#/add-recipe">Add Recipe</a>
-        </nav>
-    </header>
+    <div id="background"></div>
 
-    <div id="app">Welcome to the Recipe Book. Choose a recipe or add your own!</div>
+    <div class="content">
+        <header>
+            <nav>
+                <a href="#/">Search</a>
+                <a href="#/add-recipe">Add Recipe</a>
+            </nav>
+        </header>
 
-    <div id="addRecipeForm" style="display: none;">
-        <h2>Add a New Recipe</h2>
-        <form id="recipeForm">
-            <label for="title">Recipe Title:</label>
-            <input type="text" id="title" name="title" required><br>
+        <div id="app">Welcome to the Recipe Book. Choose a recipe or add your own!</div>
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea><br>
+        <div id="addRecipeForm" style="display: none;">
+            <h2>Add a New Recipe</h2>
+            <form id="recipeForm">
+                <label for="title">Recipe Title:</label>
+                <input type="text" id="title" name="title" required><br>
 
-            <label for="ingredients">Ingredients (name:measurement, separate by comma):</label>
-            <input type="text" id="ingredients" name="ingredients" required><br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea><br>
 
-            <label for="steps">Steps (separate by new line):</label>
-            <textarea id="steps" name="steps" required></textarea><br>
+                <label for="ingredients">Ingredients (name:measurement, separate by comma):</label>
+                <input type="text" id="ingredients" name="ingredients" required><br>
 
-            <button type="submit">Add Recipe</button>
-        </form>
+                <label for="steps">Steps (separate by new line):</label>
+                <textarea id="steps" name="steps" required></textarea><br>
+
+                <button type="submit">Add Recipe</button>
+            </form>
+        </div>
     </div>
     
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
